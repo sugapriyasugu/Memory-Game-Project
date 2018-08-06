@@ -66,6 +66,27 @@ h1 {
     transition: 0.5s;
 }
 
+.deck .card.open {
+    transform: rotateY(180deg);
+    background: #02b3e4;
+    cursor: default;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.match {
+    cursor: default;
+    background-color: #02ccba;
+    font-size: 33px;
+}
+
+.deck .card.mismatch {
+    background-color: #e74c3c;
+}
+
+
 /*
  * Styles for the Score Panel
  */

@@ -137,3 +137,9 @@ function resetGameBoard() {
     moves.textContent=0;
     resetTimer();
 }
+
+//This function restarts the game
+function restartGame() {
+    resetGameBoard();
+    startGame();
+}

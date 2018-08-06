@@ -24,3 +24,18 @@ function startGame() {
     deck.appendChild(cards[i]);
     }
 }
+
+// Shuffle function
+function shuffle(array) {
+    let currentIndex = array.length, temporaryValue, randomIndex;
+    let randomIndexes=[];
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}

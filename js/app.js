@@ -143,3 +143,35 @@ function restartGame() {
     resetGameBoard();
     startGame();
 }
+
+/****   Timer ****/
+let minutes = 0,seconds = 0;
+const timer = document.getElementById('timer');
+let intervalId;
+         
+//This function starts the timer
+function startTimer() {
+    intervalId = setInterval(function() {
+        timer.textContent = `${minutes} mins ${seconds} secs`;
+        if(seconds == 59) {
+            minutes++;
+            seconds=0;
+        }
+        else {
+            seconds++;
+        }
+    },1000);
+}
+
+//This function stops the timer
+function stopTimer() {
+    clearInterval(intervalId);
+}
+
+//This function resets the timer
+function resetTimer() {
+    stopTimer();
+    minutes = 0;
+    seconds = 0;
+    timer.textContent = `${minutes} mins ${seconds} secs`;
+}

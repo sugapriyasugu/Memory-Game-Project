@@ -39,3 +39,13 @@ function shuffle(array) {
 
     return array;
 }
+
+//This function opens the card that user clicks
+function displayCard(e) {
+    const target = e.target;
+    const targetClasses = target.classList;
+    if(targetClasses.contains('card') && !targetClasses.contains('open')) {
+        targetClasses.add('open','show');
+        addToListOfCards(target);
+    }
+}

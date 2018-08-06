@@ -72,3 +72,26 @@ function addToListOfCards(card) {
         incrementMoves();
     }
 }
+
+// correctGuess function takes 2 matched cards and keeps it open. Also, it checks whether the last pair of card matches
+function correctGuess(card1,card2,openCards) {
+    const card1ClassList = card1.classList;
+    const card2ClassList = card2.classList;
+    card1ClassList.add('match');
+    card2ClassList.add('match');  
+    //if the last card matches, then the games ends and modal box is popped to show the results  
+    if(openCards.length == 16) {
+        setTimeout(function() {
+            stopTimer();
+            const result = document.querySelector('.results');
+            result.innerHTML = `You have completed the game in <strong>${minutes} mins ${seconds-1} secs</strong> with <strong>${moves.textContent} moves</strong>`;
+            const rating = document.querySelector('.rating');
+            let overallRating='';
+            for(let i=0;i<starsCount;i++) {
+                overallRating+='<i class="fa fa-star"></i>';
+            }
+            rating.innerHTML = 'Rating : '+overallRating;
+            toggleModal();
+        }, 1000);
+    }
+}

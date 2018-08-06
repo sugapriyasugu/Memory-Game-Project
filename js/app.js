@@ -175,3 +175,19 @@ function resetTimer() {
     seconds = 0;
     timer.textContent = `${minutes} mins ${seconds} secs`;
 }
+
+/** Congratulations Modal  **/
+const modal = document.querySelector('.modal');
+const close = document.querySelector('.close');
+close.addEventListener('click',toggleModal);
+
+function toggleModal() {
+    modal.classList.toggle('show-modal');
+}
+
+const playAgainButton = document.querySelector('.play-again');
+playAgainButton.addEventListener('click',function() {
+    toggleModal();
+    resetGameBoard();
+    startGame();
+});

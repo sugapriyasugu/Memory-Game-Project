@@ -108,3 +108,22 @@ function incorrectGuess(openCards) {
         (card2.classList).remove('show','mismatch','open');
     }, 500);
 }
+
+//This function keeps track of the number of moves user has made. Also, it displays the star rating based on number of moves user has made
+function incrementMoves() {
+    moves.textContent = Number(moves.textContent)+1;
+    if(Number(moves.textContent)===1) {
+        startTimer();
+    }
+    const moveCount = Number(moves.textContent);
+    const stars = document.querySelectorAll('.fa-star');
+    //rates the game based on total number of moves
+    if(moveCount>10 && moveCount<=20) {
+        stars[2].style.display='none';
+        starsCount = 2;
+    }
+    else if(moveCount>20) {
+        stars[1].style.display='none';
+        starsCount = 1;
+    }
+}

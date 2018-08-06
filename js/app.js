@@ -95,3 +95,16 @@ function correctGuess(card1,card2,openCards) {
         }, 1000);
     }
 }
+
+// This function removes the unmatched cards from the list of open cards
+function incorrectGuess(openCards) {
+    const card1 = openCards.pop();
+    const card2 = openCards.pop();
+    (card1.classList).remove('open');
+    (card1.classList).add('mismatch');
+    (card2.classList).add('mismatch');
+    setTimeout(function() {
+        (card1.classList).remove('show','mismatch');
+        (card2.classList).remove('show','mismatch','open');
+    }, 500);
+}

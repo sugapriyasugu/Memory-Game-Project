@@ -49,3 +49,26 @@ function displayCard(e) {
         addToListOfCards(target);
     }
 }
+
+//This function maintains a list of open cards and checks whether correct guess or incorrect guess
+function addToListOfCards(card) {
+    openCards.push(card);
+    let match = false;
+    if(openCards.length%2===0) {
+        let matchedCard = null;
+        for(let i=0;i<openCards.length-1;i++) {
+            if(openCards[i].isEqualNode(card)) {
+                match = true;
+                matchedCard = openCards[i];
+                break;
+            }
+        }
+        if(match===true) {
+            correctGuess(card,matchedCard,openCards);
+        }
+        else {
+            incorrectGuess(openCards);
+        }
+        incrementMoves();
+    }
+}

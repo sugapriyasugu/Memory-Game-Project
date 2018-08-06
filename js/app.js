@@ -127,3 +127,13 @@ function incrementMoves() {
         starsCount = 1;
     }
 }
+
+//This function resets the game board
+function resetGameBoard() {
+    for (const openCard of openCards) {
+        (openCard.classList).remove('open','show','match');
+    }
+    openCards = [];
+    moves.textContent=0;
+    resetTimer();
+}

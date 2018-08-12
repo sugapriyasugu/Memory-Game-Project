@@ -161,7 +161,7 @@ let intervalId;
          
 //This function starts the timer
 function startTimer() {
-    intervalId = setInterval(function() {
+    intervalId = setInterval(() => {
         timer.textContent = `${minutes} mins ${seconds} secs`;
         if(seconds == 59) {
             minutes++;

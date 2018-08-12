@@ -7,6 +7,7 @@ let openCards = [];
 const moves = document.querySelector('.moves');
 // Initial star count is 3
 let starsCount = 3;
+const stars = document.querySelectorAll('.fa-star');
 startGame();
 deck.addEventListener('click',displayCard);
 document.querySelector('.restart').addEventListener('click',restartGame);
@@ -116,14 +117,13 @@ function incrementMoves() {
         startTimer();
     }
     const moveCount = Number(moves.textContent);
-    const stars = document.querySelectorAll('.fa-star');
     //rates the game based on total number of moves
     if(moveCount>10 && moveCount<=20) {
-        stars[2].style.display='none';
+        stars[2].style.visibility = 'hidden';
         starsCount = 2;
     }
     else if(moveCount>20) {
-        stars[1].style.display='none';
+        stars[1].style.visibility = 'hidden';
         starsCount = 1;
     }
 }
@@ -136,6 +136,16 @@ function resetGameBoard() {
     openCards = [];
     moves.textContent=0;
     resetTimer();
+    resetRating();
+}
+
+//This function resets timer
+function resetRating() {
+    starsCount = 3;
+    for(let i=0; i<starsCount; i++) {
+        stars[i].style.visibility = 'visible';
+    }
+
 }
 
 //This function restarts the game
